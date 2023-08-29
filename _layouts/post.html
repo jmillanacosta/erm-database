@@ -1,0 +1,114 @@
+---
+layout: base
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+      <i class="fa-regular fa-calendar-days"></i>
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: date_format }}
+      </time>
+      {%- if page.modified_date -%}
+        ~ 
+        {%- assign mdate = page.modified_date | date_to_xmlschema -%}
+        <time class="dt-modified" datetime="{{ mdate }}" itemprop="dateModified">
+          {{ mdate | date: date_format }}
+        </time>
+      {%- endif -%}
+      {%- if page.author -%}
+        • {% for author in page.author %}
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
+            {%- if forloop.last == false %}, {% endif -%}
+        {% endfor %}
+      {%- endif -%}
+      &nbsp;<a class="u-url" href="https://github.com/egonw/blog/commits/main/{{ page.path }}"><i class="fa-solid fa-timeline"></i></a>
+      &nbsp;<a class="u-url" href="https://github.com/egonw/blog/blob/main/{{ page.path }}"><i class="fa-solid fa-pen-to-square"></i></a>
+    </p>   
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+
+  {% if page.tags.size > 0 %}
+    <span class="post-meta">
+    {% for tag in page.tags %}
+      {% assign check = tag | split:':' %}
+      <!-- foo>{{ check.size }}</foo -->
+      {% if check.size == 1 %}
+        {% capture tag_name %}{{ tag }}{% endcapture %}
+        {% assign type = "tag" %} <!-- failsafe -->
+        {% assign icon = "tag" %}
+      {% else %}
+        {% capture tag_name %}{{ check[1] }}{% endcapture %}
+        {% if check[0] == "inchikey" %}
+          {% assign type = "molecule" %}
+          {% assign icon = "flask-vial" %}
+        {% elsif check[0] == "justdoi" %}
+          {% assign type = "skip" %}
+        {% elsif check[0] == "doi" %}
+          {% assign type = "work" %}
+          {% assign icon = "file" %}
+        {% else %}
+          {% assign type = "tag" %} <!-- failsafe -->
+          {% assign icon = "tag" %}
+        {% endif %}
+      {% endif %}
+      {% if type != "skip" %}
+      <i class="fa-solid fa-{{ icon }}"></i>
+      <a href="{{ type | append:'/' | append: tag_name | relative_url }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code></a>&nbsp;
+      {% endif %}
+    {% endfor %}
+    </span>
+  {% endif %}
+
+  </div>
+
+{% if page.tags.size > 0 %}
+  <div class="post-footer" id="bibliographyDIV" style="visibility: hidden">
+  <b class="post">References</b>
+  <p class="post-meta" id="bibliography"></p>
+  </div>
+  <script>
+const cite = new Cite()
+dois = []
+{% for tag in page.tags %}
+  {% assign check = tag | split:':' %}
+  {% if check.size > 1 %}
+    {% if check[0] == "doi" %}
+      {% capture doi %}{{ check[1] }}{% endcapture %}
+dois.push("{{ doi }}")
+    {% elsif check[0] == "justdoi" %}
+      {% capture doi %}{{ check[1] }}{% endcapture %}
+dois.push("{{ doi }}")
+    {% endif %}
+  {% endif %}
+{% endfor %}
+if (dois.length > 0) {
+  Cite.async(dois).then(function(cite) {
+    content = cite.format('bibliography', {
+      format: 'html', template : 'apa',
+      prepend: function (entry) {
+        return '<i class="fa-solid fa-file fa-xs"></i>&nbsp;'
+      },
+      append: function (entry) {
+        return ' <a href="https://doi.org/' + entry.DOI + '">CrossRef</a> <a href="https://scholia.toolforge.org/doi/' + entry.DOI + '">Scholia</a>'
+      }
+    })
+    document.getElementById('bibliography').innerHTML = content
+    document.getElementById('bibliographyDIV').style.visibility = "visible"
+  })
+}
+  </script>
+{% endif %}
+
+  {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+
+</article>
