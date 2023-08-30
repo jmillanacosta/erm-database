@@ -2,5 +2,8 @@
 layout: post
 title:  "NanoSolveIT ERM Identifiers"
 date:   2023-08-29
-tags: nanosolveit inchikey:ERM00000416
+tags: nanosolveit substance:ERM00000416 doi:10.5281/ZENODO.7940162
 ---
+
+Earlier this summer, NanoSolveIT deposited a number of datasets with physicochemical properties
+of nanomaterials, for example, for `erm:ERM00000416`.

@@ -47,6 +47,9 @@ layout: base
         {% if check[0] == "inchikey" %}
           {% assign type = "molecule" %}
           {% assign icon = "flask-vial" %}
+        {% elsif check[0] == "substance" %}
+          {% assign type = "substance" %}
+          {% assign icon = "flask-vial" %}
         {% elsif check[0] == "justdoi" %}
           {% assign type = "skip" %}
         {% elsif check[0] == "doi" %}
