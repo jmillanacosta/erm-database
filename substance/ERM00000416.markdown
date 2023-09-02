@@ -1,7 +1,7 @@
 ---
 layout: substance
 title: "Material: ERM00000416"
-tag: substance:ERM00000416
+tag: erm:ERM00000416
 tags: doi:10.5281/ZENODO.7940162
 ---
 

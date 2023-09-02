@@ -50,6 +50,9 @@ layout: base
         {% elsif check[0] == "substance" %}
           {% assign type = "substance" %}
           {% assign icon = "flask-vial" %}
+        {% elsif check[0] == "erm" %}
+          {% assign type = "substance" %}
+          {% assign icon = "flask-vial" %}
         {% elsif check[0] == "justdoi" %}
           {% assign type = "skip" %}
         {% elsif check[0] == "doi" %}

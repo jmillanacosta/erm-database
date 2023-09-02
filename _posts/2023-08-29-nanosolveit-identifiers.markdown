@@ -2,7 +2,7 @@
 layout: post
 title:  "NanoSolveIT ERM Identifiers"
 date:   2023-08-29
-tags: nanosolveit substance:ERM00000416 doi:10.5281/ZENODO.7940162 substance:ERM00000583
+tags: nanosolveit erm:ERM00000416 doi:10.5281/ZENODO.7940162 erm:ERM00000583
   doi:10.5281/ZENODO.7990302
 ---
 
