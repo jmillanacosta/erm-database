@@ -3,4 +3,5 @@ layout: substance
 title: "Material: ERM00000584"
 type: ChemicalSubstance
 tag: erm:ERM00000584
+chemicalComposition: ZnO
 ---
