@@ -3,4 +3,6 @@ layout: substance
 title: "Material: ERM00000582"
 type: ChemicalSubstance
 tag: erm:ERM00000582
+tags: doi:10.5281/ZENODO.7990251
+chemicalSubstance: Au
 ---

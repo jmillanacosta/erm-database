@@ -1,8 +1,9 @@
 ---
 layout: substance
 title: "Material: ERM00000583"
-tag: substance:ERM00000583
+tag: erm:ERM00000583
 tags: doi:10.5281/ZENODO.7990302
+chemicalComposition: Fe3O4
 ---
 
 ### Datasets

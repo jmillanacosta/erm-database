@@ -71,6 +71,7 @@ layout: substance
 title: "Material: ${tag}"
 type: ChemicalSubstance
 tag: erm:${tag}
+chemicalComposition: XXXX
 ---
 """
   }

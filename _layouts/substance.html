@@ -10,13 +10,14 @@ layout: base
 {% assign substance_split = page.tag | split:':' %}
 {% assign substance = substance_split[1] %}
 
-{% if page.smiles %}
-<img src="https://cdkdepict.toolforge.org/depict/bow/svg?smi={{ page.smiles | escape }}&abbr=on&hdisp=bridgehead&showtitle=false&zoom=2&annotate=cip" style="width: 300px; float: right"></img>
-{% endif %}
-
 <div class="post">
 <h1 class="tag-title">{{ clean_title }}</h1>
+
 <p class="post-meta"><i class="fa-solid fa-flask-vial"></i> {{ page.tag }}</p>
+
+{% if page.chemicalComposition %}<p class="post-meta">Chemical composition: {{ page.chemicalComposition }}</p>{% endif %}
+
+<h2 class="tag-title">Blog posts</h2>
 <ul>
 {% for post in site.tags[page.tag] %}
   {% if post.lang %}
@@ -43,7 +44,8 @@ layout: base
   },
   "url": "{{ page.url | prepend: site.url }}",
   "name": "{{ clean_title }}",
-  "description": "Chemical substance page for {{ clean_title }} with possible blog posts about when information became available for the substance.",
+  "description": "Chemical substance page for {{ clean_title }} with possible blog posts about when information became available for the substance.",{% if page.chemicalComposition %}
+  "chemicalComposition": "{{ page.chemicalComposition }}",{% endif %}
   "identifier": [
     "https://nanocommons.github.io/identifiers/registry#{{ clean_title }}", "erm:{{ clean_title }}", "{{ clean_title }}"
   ]
