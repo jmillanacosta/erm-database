@@ -2,7 +2,7 @@
 layout: post
 title:  "The first ERM identifier is linked to the JRC list"
 date:   2022-10-18
-tags: riskgone nanosolveit jrc erm:ERM00000064 doi:10.3389/FTOX.2022.981701 nanocommons erm:ERM00000063 doi:10.5281/ZENODO.8015080
+tags: riskgone nanosolveit jrc erm:ERM00000064 doi:10.3389/FTOX.2022.981701 nanocommons doi:10.5281/ZENODO.8015080
 image: https://riskgone.wp.nilu.no/wp-content/uploads/sites/11/2019/03/cropped-RISKGONE_Logo_96.png
 ---
 
