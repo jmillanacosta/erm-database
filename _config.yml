@@ -2,7 +2,7 @@ markdown: kramdown
 title: ERM Identifier Database
 description: This database provides information about materials with an European Registry of Materials (ERM) identifer for which information was disclosed.
 baseurl: "/erm-database" # the subpath of your site, e.g. /blog
-url: "http://nanocommons.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://nanocommons.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 theme: minima
