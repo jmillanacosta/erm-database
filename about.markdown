@@ -4,8 +4,16 @@ title: About
 permalink: /about/
 ---
 
-This database provides information about [ERM identifiers](/erm-database/work/10.5281/ZENODO.8015080) for which a citable resource has provided
+This database provides information about identifiers from the European Registry of Materials
+([ERM identifiers](/erm-database/work/10.5281/ZENODO.8015080)) for which a citable resource has provided
 information. This can be a dataset with a DOI or a (peer-reviewed) journal article.
+
+Because the registry merely registers the identifier, it allows ERM identifiers to be used
+before details are disclosed or measured. For exameple, a TiO<sub>2</sub> material is planned
+in a study but not syntesized or ordered yet, and the exact chemistry and biological properties
+are not yet known. A second example is when you wish to publish about a new material (e.g. efficacy)
+and you will not disclose the chemical identity yet. [ERM00000416](/erm-database/substance/ERM00000416)
+is an example ERM identifier.
 
 ## Powered by
 
